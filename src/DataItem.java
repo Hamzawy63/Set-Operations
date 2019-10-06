@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DataItem {
-    HashMap<String , Integer> universe;
+    HashMap<String , Integer> universe; // hamzawyyyyyyyyyyyy
     int n ; // length of the universe
     boolean arr[][]; // length of this array is 26 * n
 
