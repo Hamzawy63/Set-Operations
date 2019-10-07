@@ -34,6 +34,7 @@ public class DataItem {
             }
         }
         subsets = new boolean[26][universe.size()];
+        universeSize = universe.size();
 
 
 

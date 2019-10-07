@@ -8,6 +8,7 @@ public class Main {
         System.out.println("Welcome to a simple set operations simulation ");
         data.addUniverse();
 
+
     }
 
     public static int openMessange()
