@@ -1,13 +1,12 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
-
+import java.util.*;
+import java.io.*;
 public class DataItem {
     HashMap<String, Integer> universe; // to have index when you have string
     ArrayList<String> universeId; // to have string when you have index
     int universeSize; // length of the universe
     boolean subsets[][]; // length of this array is 26 * n
-    private Scanner sc;
+    // private fields
+    private FastReader sc;
     private boolean[] subsetNames;
     private int numberOfSubsets;
 
@@ -15,8 +14,7 @@ public class DataItem {
 
     public DataItem() {
         this.universe = new HashMap<String, Integer>();
-        subsets = new boolean[26][universeSize];
-        sc = new Scanner(System.in);
+        sc = new FastReader();
         universeId = new ArrayList<>();
         subsetNames = new boolean[26];
         numberOfSubsets = 0;
@@ -35,7 +33,8 @@ public class DataItem {
                 universeId.add(input);
             }
         }
-        this.universeSize = n;
+        subsets = new boolean[26][universe.size()];
+
 
 
     }
@@ -49,13 +48,15 @@ public class DataItem {
         }
 
         System.out.println("Enter Name of your subset (just one character)");
-        char name = Character.toLowerCase(sc.nextLine().charAt(0));
+        char name = Character.toUpperCase(sc.nextLine().charAt(0));
+
+
         while( !(name>='A' && name <= 'Z') ||  subsetNames[name - 'A'])
         {
 
             System.out.println("Invalid input or this character is taken ");
             System.out.println("Enter Name of your subset (just one character)");
-             name = Character.toLowerCase(sc.nextLine().charAt(0));
+             name = Character.toUpperCase(sc.nextLine().charAt(0));
         }
         numberOfSubsets++;
         System.out.println("Enter size of your subset ");
@@ -73,17 +74,9 @@ public class DataItem {
 
             // add the element in our
             subsets[name - 'A'][idx] = true;
-
-
-
-
-
-
-
         }
-
-
     }
+
 
 
 }
