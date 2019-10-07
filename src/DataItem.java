@@ -3,8 +3,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class DataItem {
-    HashMap<String , Integer> universe;
-    ArrayList<String> universeId;
+    HashMap<String , Integer> universe; // to have index when you have string
+    ArrayList<String> universeId; // to have string when you have index
     int universeSize ; // length of the universe
     boolean subsets[][]; // length of this array is 26 * n
     Scanner sc ;

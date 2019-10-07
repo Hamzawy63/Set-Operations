@@ -46,20 +46,19 @@ public class operations implements SetOperations {
     }
 
     /**
-     * This method for print difference between two subsets
+     * This method for print complement of subset
      *
      * @param data
-     * @param first
-     * @param second
+     * @param subset
      */
-    public void difference(DataItem data, char first, char second) {
+    public void complement(DataItem data, char subset) {
 
-        int firstSet=first-'A', secondSet=second-'A';
+        int subSet=subset-'A';
 
-        System.out.print("Result " + first + " - " + second + " : ");
+        System.out.print("Result " + subSet + "' : ");
 
         for (int i=0; i < data.universeSize; i++) {
-            if(data.subsets[firstSet][i] && !data.subsets[secondSet][i]) {
+            if(!data.subsets[subSet][i]) {
                 System.out.print(data.universeId.get(i));
                 System.out.print(" ");
             }
