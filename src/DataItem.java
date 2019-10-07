@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class DataItem {
     HashMap<String , Integer> universe;
+    ArrayList<String> universeId;
     int universeSize ; // length of the universe
     boolean subsets[][]; // length of this array is 26 * n
     Scanner sc ;
@@ -13,6 +14,7 @@ public class DataItem {
         this.universeSize = universe.size() ;
         subsets =  new boolean[26][universeSize];
         sc = new Scanner(System.in);
+        universeId=new ArrayList<>();
     }
     public void addUniverse()
     {
