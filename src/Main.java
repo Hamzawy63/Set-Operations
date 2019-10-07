@@ -49,11 +49,11 @@ public class Main {
     }
     public static char takeSetName()
     {
-        char name = Character.toUpperCase(sc.nextLine().charAt(0);
+        char name = Character.toUpperCase(sc.nextLine().charAt(0));
         while (name <'A' || name > 'Z')
         {
             System.out.println("Invalid subset name try again");
-             name = Character.toUpperCase(sc.nextLine().charAt(0);
+             name = Character.toUpperCase(sc.nextLine().charAt(0));
         }
         return name ;
     }
