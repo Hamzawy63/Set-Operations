@@ -7,8 +7,6 @@ public class DataItem {
     boolean subsets[][]; // length of this array is 26 * n
     // private fields
     private FastReader sc;
-    private boolean[] subsetNames;
-    private int numberOfSubsets;
 
 
 
@@ -16,8 +14,6 @@ public class DataItem {
         this.universe = new HashMap<String, Integer>();
         sc = new FastReader();
         universeId = new ArrayList<>();
-        subsetNames = new boolean[26];
-        numberOfSubsets = 0;
     }
     public void addUniverse() {
         System.out.println("Enter The Length of your universe");
@@ -42,24 +38,23 @@ public class DataItem {
 
     public void addSubset()
     {
-        if(numberOfSubsets == 26) // then we have used all the characters
-        {
-            System.out.println("Sorry you have used all the names");
-            return;
-        }
 
         System.out.println("Enter Name of your subset (just one character)");
         char name = Character.toUpperCase(sc.nextLine().charAt(0));
 
 
-        while( !(name>='A' && name <= 'Z') ||  subsetNames[name - 'A'])
+        while( !(name>='A' && name <= 'Z'))
         {
 
-            System.out.println("Invalid input or this character is taken ");
+            System.out.println("Invalid input");
             System.out.println("Enter Name of your subset (just one character)");
              name = Character.toUpperCase(sc.nextLine().charAt(0));
         }
-        numberOfSubsets++;
+        // overriding the previous set
+        for (int i = 0; i <universeSize ; i++) {
+            subsets[name - 'A'][i] = false;
+        }
+
         System.out.println("Enter size of your subset ");
         int n =  sc.nextInt();
         System.out.println("Enter elements of your subsets line by  line");

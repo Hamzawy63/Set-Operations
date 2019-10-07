@@ -5,9 +5,31 @@ public class Main {
     static FastReader sc = new FastReader();
     public static void main(String[] args) {
         DataItem data = new DataItem();
+        operations utils = new operations();
         System.out.println("Welcome to a simple set operations simulation ");
         data.addUniverse();
+        int n = openMessange();
+       if(n == 1)
+       {
+            data.addSubset();
+       }else if(n  == 2)
+       {
+           char f  = takeSetName();
+           char s  = takeSetName();
+           utils.union(data ,f,s);
 
+       }else if(n == 3)
+       {
+           char f  = takeSetName();
+           char s  = takeSetName();
+           utils.intersection(data ,f,s);
+       }else if(n == 4 )
+       {
+           char f  = takeSetName();
+           utils.complement(data ,f);
+
+
+       }
 
     }
 
@@ -24,6 +46,16 @@ public class Main {
             n = sc.nextInt();
         }
         return n;
+    }
+    public static char takeSetName()
+    {
+        char name = Character.toUpperCase(sc.nextLine().charAt(0);
+        while (name <'A' || name > 'Z')
+        {
+            System.out.println("Invalid subset name try again");
+             name = Character.toUpperCase(sc.nextLine().charAt(0);
+        }
+        return name ;
     }
 
 }
