@@ -31,23 +31,19 @@ public class DataItem {
         }
         subsets = new boolean[26][universe.size()];
         universeSize = universe.size();
-
-
-
     }
 
     public void addSubset()
     {
 
-        System.out.println("Enter Name of your subset (just one character)");
+        System.out.println("Enter Name of your subset (just one character Alphabet A : Z)");
         char name = Character.toUpperCase(sc.nextLine().charAt(0));
-
 
         while( !(name>='A' && name <= 'Z'))
         {
 
             System.out.println("Invalid input");
-            System.out.println("Enter Name of your subset (just one character)");
+            System.out.println("Enter Name of your subset (just one character Alphabet A : Z)");
              name = Character.toUpperCase(sc.nextLine().charAt(0));
         }
         // overriding the previous set
@@ -72,7 +68,4 @@ public class DataItem {
             subsets[name - 'A'][idx] = true;
         }
     }
-
-
-
 }

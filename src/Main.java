@@ -34,7 +34,6 @@ public class Main {
             }
         }
 
-
     }
 
     public static int openMessange()
@@ -53,6 +52,7 @@ public class Main {
         }
         return n;
     }
+
     public static char takeSetName()
     {
         System.out.println("Enter subset name ");

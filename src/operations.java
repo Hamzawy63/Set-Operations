@@ -8,18 +8,20 @@ public class operations implements SetOperations {
      */
     public void union(DataItem data, char first, char second) {
 
-        int firstSet=first-'A', secondSet=second-'A';
+        int firstSet=first-'A', secondSet=second-'A'; boolean flag=false;
 
-        System.out.print("Result " + first + " ^ " + second + " : ");
+        System.out.print("Result " + first + " ^ " + second + " : { ");
 
         for (int i=0; i < data.universeSize; i++) {
             if(data.subsets[firstSet][i] || data.subsets[secondSet][i]) {
+                if (flag)
+                    System.out.print(", ");
                 System.out.print(data.universeId.get(i));
-                System.out.print(" ");
+                flag=true;
             }
         }
 
-        System.out.println();
+        System.out.println(" }");
     }
 
     /**
@@ -31,18 +33,20 @@ public class operations implements SetOperations {
      */
     public void intersection(DataItem data, char first, char second) {
 
-        int firstSet=first-'A', secondSet=second-'A';
+        int firstSet=first-'A', secondSet=second-'A'; boolean flag=false;
 
-        System.out.print("Result " + first + " v " + second + " : ");
+        System.out.print("Result " + first + " v " + second + " : { ");
 
         for (int i=0; i < data.universeSize; i++) {
             if(data.subsets[firstSet][i] && data.subsets[secondSet][i]) {
+                if (flag)
+                    System.out.print(", ");
                 System.out.print(data.universeId.get(i));
-                System.out.print(" ");
+                flag=true;
             }
         }
 
-        System.out.println();
+        System.out.println(" }");
     }
 
     /**
@@ -53,17 +57,18 @@ public class operations implements SetOperations {
      */
     public void complement(DataItem data, char subset) {
 
-        int subSet=subset-'A';
+        int subSet=subset-'A'; boolean flag=false;
 
-        System.out.print("Result " + subSet + "' : ");
+        System.out.print("Result " + subset + "' : { ");
 
         for (int i=0; i < data.universeSize; i++) {
             if(!data.subsets[subSet][i]) {
+                if (flag)
+                    System.out.print(", ");
                 System.out.print(data.universeId.get(i));
-                System.out.print(" ");
+                flag=true;
             }
         }
-
-        System.out.println();
+        System.out.println(" }");
     }
 }
